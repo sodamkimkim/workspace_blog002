@@ -37,9 +37,8 @@ public class BoardService {
 	
 	@Transactional
 	public Board 글상세보기(int id) {
-		Board board = boardRepository.findById(id).orElseThrow(() -> {
-			return new RuntimeException("해당글은 삭제되었습니다.");
-			
+		Board board = boardRepository.mFindById(id).orElseThrow(() -> {
+			return new RuntimeException("id 값이 잘못 들어 왔어요.");
 		});
 		// 더티체킹 (조회수 증가)
 		board.setReadCount(board.getReadCount()+1);

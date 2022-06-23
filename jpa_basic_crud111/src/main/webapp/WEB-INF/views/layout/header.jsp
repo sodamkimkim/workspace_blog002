@@ -18,32 +18,49 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
+
     <!-- start -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <!-- end -->
   </head>
   <body>
-    
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand -->
-      <a class="navbar-brand" href="/">블로그</a>
+      <a class="navbar-brand" href="/blogcrud">블로그</a>
 
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
- 
+
+      <!-- 로그인 여부에 따라서 다르게 처리할 것임. -->
       <!-- Navbar links -->
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/saveForm">글쓰기</a>
-            </li>
+          <c:choose>
+            <c:when test="${empty sessionScope.principal}">
+              <li class="nav-item">
+                <a class="nav-link" href="/blogcrud/user/login_form">로그인</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/blogcrud/user/join_form">회원가입</a>
+              </li>
+            </c:when>
+            <c:otherwise>
+              <li class="nav-item">
+                <a class="nav-link" href="/blogcrud/save_form">글쓰기</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/blogcrud/logout">로그아웃</a>
+              </li>
+            </c:otherwise>
+          </c:choose>
         </ul>
       </div>
     </nav>
-    <br/>
+    <br />
   </body>
+</html>

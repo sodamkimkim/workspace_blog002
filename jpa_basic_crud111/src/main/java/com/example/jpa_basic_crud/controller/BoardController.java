@@ -59,7 +59,7 @@ public class BoardController {
 		return boards;
 	}
 
-	@GetMapping("/saveForm")
+	@GetMapping("/save_form")
 	public String saveForm() {
 
 		return "saveForm";
