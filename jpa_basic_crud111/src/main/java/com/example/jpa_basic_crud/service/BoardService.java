@@ -46,4 +46,25 @@ public class BoardService {
 		return board;
 		
 	}
+	
+	@Transactional
+	public void 글수정하기(int id, BoardSaveRequestDto dto) {
+		Board boardEntity = boardRepository.findById(id).orElseThrow(() -> {
+			return new RuntimeException("해당 글은 존재하지 않습니다.");
+		});
+		
+		boardEntity.setTitle(dto.getTitle());
+		boardEntity.setContent(dto.getContent());
+		
+		// boardRepository.save(boardEntity);
+		// 이렇게 하지 않고 트랜잭션 처리 --> 글수정하기()메서드가 종료되는 시점에 더티체킹 발생
+	}
+	
+	@Transactional
+	public int 글삭제하기(int id) {
+//		boardRepository.deleteById(id);//delete from board where id=100; 해보면 무조건 성공나오기 때문에 return -1 or return 1이런거 구분해 줄 필요 없다.
+	
+		return boardRepository.mDeleteById(id);
+	
+	}
 }

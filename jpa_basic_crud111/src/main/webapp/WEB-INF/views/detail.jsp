@@ -2,8 +2,8 @@
 	<%@ include file="layout/header.jsp" %>
 	
 	<main class="container">
-		<a class="btn btn-warning" href="#">수정</a>
-		<button type = "button" class = "btn btn-danger">삭제</button>
+		<a class="btn btn-warning" href="/updateForm/${board.id}">수정</a><!-- a태그는 무조건 get매핑 -->
+		<button type = "button" onclick="deleteBoard(${board.id})" class = "btn btn-danger">삭제</button>
 		<br/>
 		<br/>
 		
@@ -17,6 +17,22 @@
 		</div>
 		<hr/>
 	</main>
+	<script>
+		function deleteBoard(id) {
+				fetch("/board/"+id, {
+					method: "delete"
+				})
+				.then(res => res.text())
+				.then(res => {
+					if(res =="ok"){
+						alert("삭제성공");
+						location.href = "/";
+					}else{
+						alert("삭제실패");
+					}
+				});
+			}
+	</script>
 	
 	<%@ include file="layout/footer.jsp" %>
 	
