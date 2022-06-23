@@ -1,9 +1,5 @@
 package com.example.jpa_basic_crud.controller;
 
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.jpa_basic_crud.dto.BoardSaveRequestDto;
 import com.example.jpa_basic_crud.model.Board;
-import com.example.jpa_basic_crud.repository.BoardRepository;
 import com.example.jpa_basic_crud.service.BoardService;
 
 @Controller
@@ -69,6 +64,7 @@ public class BoardController {
 	@ResponseBody
 	public String save(@RequestBody BoardSaveRequestDto dto) { // title, content 넘어온다.
 		// 서비스 객체로 가서 DB저장 요청 해야 함
+		System.out.println("save함수에서 받은 dto입니다 : "+dto);
 		boardService.글쓰기(dto);
 		return "ok";
 	}

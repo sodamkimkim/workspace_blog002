@@ -36,7 +36,7 @@
         	}
         	
         // 비동기 통신 해주는 자바 스크립트에 내장된 함수 fetch
-           	fetch("/board/" + id, {
+           	fetch("/blogcrud/board/" + id, {
 	       		method: "put",
 	       		headers: {
 	       			'content-type': 'application/json; charset=utf-8'
@@ -48,7 +48,7 @@
         	.then( res => {
         		if(res == "ok") {
         			alert("글수정 성공");
-        			location.href = "/board/"+id;
+        			location.href = "/blogcrud/board/"+id;
         		}else{
         			alert("글수정 실패");
         		}

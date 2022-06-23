@@ -2,7 +2,7 @@
 	<%@ include file="layout/header.jsp" %>
 	
 	<main class="container">
-		<a class="btn btn-warning" href="/updateForm/${board.id}">수정</a><!-- a태그는 무조건 get매핑 -->
+		<a class="btn btn-warning" href="/blogcrud/updateForm/${board.id}">수정</a><!-- a태그는 무조건 get매핑 -->
 		<button type = "button" onclick="deleteBoard(${board.id})" class = "btn btn-danger">삭제</button>
 		<br/>
 		<br/>
@@ -19,14 +19,14 @@
 	</main>
 	<script>
 		function deleteBoard(id) {
-				fetch("/board/"+id, {
+				fetch("/blogcrud/board/"+id, {
 					method: "delete"
 				})
 				.then(res => res.text())
 				.then(res => {
 					if(res =="true"){
 						alert("삭제성공");
-						location.href = "/";
+						location.href = "/blogcrud";
 					}else{
 						alert("삭제실패");
 					}

@@ -34,8 +34,8 @@
         	}
         	
         // 비동기 통신 해주는 자바 스크립트에 내장된 함수 fetch
-           	fetch("/save", {
-	       		method: "post",
+           	fetch("/blogcrud/save", {
+	       		method: "Post",
 	       		headers: {
 	       			'content-type': 'application/json; charset=utf-8'
 	       		},
@@ -46,8 +46,10 @@
         	.then( res => {
         		if(res == "ok") {
         			alert("글쓰기 성공");
-        			location.href = "/";
+        			console.log(board);
+        			location.href = "/blogcrud";
         		}else{
+        			console.log(board);
         			alert("글쓰기 실패");
         		}
         		
