@@ -26,7 +26,7 @@
       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet" />
       <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
       <!-- end -->
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="/blogcrud/css/style.css">
     </head>
 
     <body>
@@ -85,9 +85,7 @@
 
       </c:choose>
       <br />
-    </body>
 
-    </html>
 
 
     <!-- <li class="nav-item">
