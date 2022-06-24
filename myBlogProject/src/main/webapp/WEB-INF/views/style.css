@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.all {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+.leftSide {
+  background-color: aqua;
+  width: 30%;
+}
+.leftSide .wrap {
+  width: 150px;
+  background-color: blue;
+  float: right;
+}
+.rightSide {
+  background-color: brown;
+  width: 70%;
+}
+.rightSide .wrap {
+  background-color: blanchedalmond;
+}
+
+img {
+  width: 100px;
+}
+.rightSide header {
+  background-color: aquamarine;
+  height: 300px;
+  text-align: right;
+}
+.rightSide header h1 {
+  position: relative;
+  top: 150px;
+  right: 50px;
+}
+.rightSide nav {
+  display: flex;
+}
